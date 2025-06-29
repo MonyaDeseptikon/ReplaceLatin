@@ -1,4 +1,4 @@
-﻿'Проверка кодировки
+﻿'Проверка кодировки 2
 Attribute VB_Name = "replaceLatin"
 Option Explicit
 Sub НаЛистеЗаменаЛатинскихБуквНаКириллическиеВнутреняя(ByRef cellCount As Long, ByRef replaceCount As Long, sheetNum As Variant)
@@ -6,7 +6,7 @@ Sub НаЛистеЗаменаЛатинскихБуквНаКирилличес
 Dim sheetSource As Worksheet, cellCheck As Range, rowCount As Long, colFIAS As Integer, FIAS As Object
 colFIAS = 0
 
-'Задание и подготовка рабочего листа
+'Задание и подготовка рабочего листа 2
 Set sheetSource = ActiveWorkbook.Worksheets(sheetNum)
 If sheetSource.Visible = False Then MsgBox ("Указанный лист скрыт, сделайте лист видимым или введите другой номер листа"): Exit Sub
 If sheetSource.FilterMode Then sheetSource.ShowAllData
@@ -22,6 +22,14 @@ cellCount = cellCount + sheetSource.UsedRange.Count
     For Each cellCheck In sheetSource.UsedRange
         If IsError(cellCheck) Or cellCheck.HasFormula Or cellCheck.Column = colFIAS Then
         Else
+
+
+
+
+
+
+
+
            If cellCheck Like "*[CcEeTOopPAaHKkXxBMy]*" Then
             replaceCount = replaceCount + 1 'Счетчик ячеек, в которых проведена замена
             cellCheck.Value = Replace(cellCheck, "C", "С", , , vbBinaryCompare)
